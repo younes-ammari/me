@@ -4,8 +4,8 @@ on:
   push:
   schedule:
     # “At 13:37 on every day-of-week from Monday through Friday.”
-    # Runs every 5 minutes
-    - cron: '*/5 * * * *'
+    # Runs every 12 hours
+    - cron: '0 */12 * * *'
   workflow_dispatch:
 
 jobs:
