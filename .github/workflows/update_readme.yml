@@ -1,4 +1,4 @@
-name: Update README all day at 04:04
+name: Update README every 12 hours
 
 on:
   push:
@@ -8,9 +8,14 @@ on:
     - cron: '0 */12 * * *'
   workflow_dispatch:
 
+
+# This is the DYNAMIC name for each individual run.
+run-name: "Update README triggered by ${{ github.event_name }} (Run #${{ github.run_number }})"
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    name: Update README at ${{ github.run_attempt }}
     strategy:
       matrix:
         node-version: [14.x]
