@@ -1,6 +1,5 @@
 
 <div align="center">
-  ## <img src="https://younes-ammari.github.io/assets/images/profile-image.jpg" alt="Younes Ammari Profile Picture" width="150" style="border-radius:50%;"/>
   <h1><b>Younes AMMARI</b></h1>
   <h3>Medical Doctor & Full Stack Developer</h3>
   <p>Bridging the gap between healthcare and technology to create innovative solutions.</p>
