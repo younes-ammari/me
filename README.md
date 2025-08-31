@@ -14,7 +14,7 @@ As a medical doctor with a passion for technology, I specialize in creating inno
 - 🏥 **Clinician:** Applying medical knowledge to ensure products are safe, effective, and clinically relevant.
 - 💻 **Developer:** Building robust, scalable, and user-friendly web and mobile applications.
 - 🚀 **Innovator:** Participating in hackathons and challenges to push the boundaries of HealthTech and AI.
-- 🌐 **Portfolio:** Check out my work on my [**Personal Website**](https://younes-ammari.github.io/).
+- 🌐 **Portfolio:** Check out my work on my [**Personal Website**](https://younes-ammari.vercel.app/).
 - 📅 **Let's Talk:** [**Book a 30-min meeting with me on Calendly!**](https://calendly.com/dev-younes-ammari/30min)
 
 ---
@@ -80,8 +80,8 @@ As a medical doctor with a passion for technology, I specialize in creating inno
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | **MedColl: Conduites Médicales** (Mobile)   | An innovative application designed to provide a comprehensive collection of medical guidelines.        | [**View on Google Play**](https://play.google.com/store/apps/details?id=com.younesammari.medcoll)                               |
 | **MedConsult** (Mobile)                     | A medical appointments app that automates scheduling and calculates days between consultations.        | [**View on Google Play**](https://play.google.com/store/apps/details?id=com.younesammari.medconsult)                             |
-| **Mataa** (Web)                             | Developed for the Hajj & Umrah challenge to solve the luggage problem for pilgrims.                    | [**Learn More**](https://younes-ammari.github.io/) <!-- Replace with direct project link if available -->                       |
-| **Virtual AI Patient** (Web)                | A generative AI project for medical training, simulating realistic patient interactions for students.  | [**Learn More**](https://younes-ammari.github.io/) <!-- Replace with direct project link if available -->                       |
+| **Mataa** (Web)                             | Developed for the Hajj & Umrah challenge to solve the luggage problem for pilgrims.                    | [**Learn More**](https://younes-ammari.vercel.app/) <!-- Replace with direct project link if available -->                       |
+| **Virtual AI Patient** (Web)                | A generative AI project for medical training, simulating realistic patient interactions for students.  | [**Learn More**](https://younes-ammari.vercel.app/) <!-- Replace with direct project link if available -->                       |
 
 ---
 
