@@ -1,15 +1,13 @@
-name: Update README every 12 hours
+name: Update README (randomized intervals)
 
 on:
   push:
   schedule:
-    # “At 13:37 on every day-of-week from Monday through Friday.”
-    # Runs every 12 hours
-    - cron: '0 */12 * * *'
+    # Run every 6 hours; the job will decide randomly whether to actually update
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
-
-# This is the DYNAMIC name for each individual run.
+# Dynamic run name
 run-name: "Update README triggered by ${{ github.event_name }} (Run #${{ github.run_number }})"
 
 jobs:
@@ -20,17 +18,54 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
+      # Fetch full history so we can inspect last commit time for README.md
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Decide whether to update (random 6 / 12 / 24h)
+        id: decide
+        run: |
+          set -eu
+
+          # Get last commit timestamp that touched README.md (epoch seconds)
+          if git ls-files --error-unmatch README.md >/dev/null 2>&1; then
+            last_ts=$(git log -1 --format=%ct -- README.md || echo 0)
+          else
+            last_ts=0
+          fi
+
+          now_ts=$(date +%s)
+          hours_since=$(( (now_ts - last_ts) / 3600 ))
+
+          # Randomly choose one of the allowed intervals (in hours)
+          choices=(6 12 24)
+          idx=$(( RANDOM % ${#choices[@]} ))
+          interval=${choices[$idx]}
+
+          echo "Chosen interval: ${interval} hours"
+          echo "Hours since last README update: ${hours_since}"
+
+          if [ "${hours_since}" -ge "${interval}" ]; then
+            echo "update=true" >> $GITHUB_OUTPUT
+          else
+            echo "update=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Update README.md file
+        if: steps.decide.outputs.update == 'true'
         run: |
           node index.js > README.md
         env:
           CI: true
+
       - name: commit changes
+        if: steps.decide.outputs.update == 'true'
         uses: EndBug/add-and-commit@v4
         with:
           author_name: younes-ammari
@@ -39,5 +74,5 @@ jobs:
           signoff: false
           message: ':memo: README.md updated by Gabot'
         env:
-          # This is necessary in order to push a commit to the repo
+          # You can use the built-in GITHUB_TOKEN or your GH_TOKEN secret
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
