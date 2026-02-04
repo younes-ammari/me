@@ -134,6 +134,6 @@ Added the `Mon 3 Jan 2022`
 
 Last update on Wed Feb 04 2026
 
-**331 day before 2027 ⏱** days before new years
+**330 day before 2027 ⏱** days before new years
 
 🤖 This README.md is updated with wickedness, by Gabot ❤️
